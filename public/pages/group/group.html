@@ -1,0 +1,194 @@
+			 <slick infinite=true slides-to-show=1 arrows=false dots=false  slides-to-scroll=1 id="slider" 
+			 		ng-if="group.sliderImgList.length">
+    			<div class="item" ng-repeat="slider in group.sliderImgList" style="background-image:url('{{slider}}')">
+				</div>
+    		</slick>
+
+    		<section class="stickerGroup" layout-align=" center" layout="row" hide-xs hide-sm>
+					<div class="container" layout="row" layout-align="start center">
+						<div class="stickerWrapper" flex-gt-md=25 flex-md=25 layout-align="center center" layout="column">
+							<span>Будущее закладывается в настоящем</span>
+						</div>
+					</div>
+			</section>
+
+			<section class="content projectContent groupContent" layout-align="center" layout="row">
+				<div class="container" layout-align="start center" layout="column">
+
+					<div class="container">
+						<div class="statistic group" layout="row" flex=100 layout-align="space-around stretch" layout-wrap>
+							<div class="md-whiteframe-4dp" 
+							flex-xs=85 
+							flex-sm=45
+							flex-md=20
+							flex-gt-md=20  layout="column" layout-align-gt-md="start stretch" 
+							ng-repeat="foo in group.badgeList">
+		
+								<div class="statNumberWrapper">
+									{{foo.score}}
+									<span class="statLabel" ng-if="foo.badge == '1'">KM</span>
+								</div>
+								<div class="statTextWrapper" >{{foo.title}}</div>
+							</div>
+							
+						</div>
+					</div>
+
+					<div class="containerLight" layout-align="start stretch" layout="column">
+						<div class="titleLight   bg-white">
+							<h2 >{{group.title.mainTitle}}</h2>
+
+							<span class="text-left">
+								{{group.title.subTitle}}
+							</span>
+							
+							<div class="titleLogo">
+								<div class="titleLogoRound transparent" layout="row" layout-align="center center">
+									<img src="img/icons/img-icons/icon-clock.png" alt="">
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				</section>
+
+				<section class=" projectContent" layout-align="center" layout="row">
+					<div class="container" layout-align="start center" layout="column">
+
+					    <ul class="groupTimeline">
+
+					        <li>
+						          <div class="timeline-badge" layout="row" layout-align="center center">
+						          	<div class="timelineArrowWrapper" layout="row" layout-align="center center">
+						          		<i class="icon-arrow-down"></i>
+						          	</div>
+						          </div>
+
+						          <div class="timeline-panel md-whiteframe-1dp" layout="row" layout-align="start stretch">
+						            <div class="groupLineImg" style="background-image:url('img/groupTimeline/image1.png')" flex=50></div>
+						            <div class="groupLineText" flex=50 layout="row" layout-align="center center">
+						            	<span>Главная ценность Компании - это коллектив, состоящий высококвалифицированных специалистов в разных облсатях, успешно работающих.
+						            	</span>
+						            </div>
+						          </div>
+					        </li>
+
+					        <li class="timeline-inverted">
+						          <div class="timeline-badge" layout="row" layout-align="center center">
+						          	<div class="timelineArrowWrapper" layout="row" layout-align="center center">
+						          		<i class="icon-arrow-down"></i>
+						          	</div>
+						          </div>
+
+						          <div class="timeline-panel md-whiteframe-1dp" layout="row" layout-align="start stretch">
+						          	
+						            <div class="groupLineText" flex=50 layout="row" layout-align="center center">
+						            	<span>Главная ценность Компании - это коллектив, состоящий высококвалифицированных специалистов в разных облсатях, успешно работающих.
+						            	</span>
+						            </div>
+						            <div class="groupLineImg" style="background-image:url('img/groupTimeline/image2.png')" flex=50></div>
+						          </div>
+					        </li>
+
+					        <li>
+						          <div class="timeline-badge" layout="row" layout-align="center center">
+						          	<div class="timelineArrowWrapper" layout="row" layout-align="center center">
+						          		<i class="icon-arrow-down"></i>
+						          	</div>
+						          </div>
+
+						          <div class="timeline-panel md-whiteframe-1dp" layout="row" layout-align="start stretch">
+						            <div class="groupLineImg" style="background-image:url('img/groupTimeline/image3.png')" flex=50></div>
+						            <div class="groupLineText" flex=50 layout="row" layout-align="center center">
+						            	<span>Главная ценность Компании - это коллектив, состоящий высококвалифицированных специалистов в разных облсатях, успешно работающих.
+						            	</span>
+						            </div>
+						          </div>
+					        </li>
+
+					        <li class="timeline-inverted">
+						          <div class="timeline-badge" layout="row" layout-align="center center">
+						          	<div class="timelineArrowWrapper" layout="row" layout-align="center center">
+						          		<i class="icon-arrow-down"></i>
+						          	</div>
+						          </div>
+
+						          <div class="timeline-panel md-whiteframe-1dp" layout="row" layout-align="start stretch">
+						          	
+						            <div class="groupLineText" flex=50 layout="row" layout-align="center center">
+						            	<span>Главная ценность Компании - это коллектив, состоящий высококвалифицированных специалистов в разных облсатях, успешно работающих.
+						            	</span>
+						            </div>
+						            <div class="groupLineImg" style="background-image:url('img/groupTimeline/image4.png')" flex=50></div>
+						          </div>
+					        </li>
+
+					    </ul>
+
+					</div>
+
+				</section>
+
+				<section class="yellowSection" layout-align="start center" layout="column">
+					<div class="containerLight" layout-align="start stretch" layout="column">
+						<div class="yellowTitle">
+							<span>{{group.yellowTitle}}</span>
+						</div>
+						<ul>
+							<li ng-repeat="groups in group.partnersList"><span>{{groups.name}}</span></li>
+						</ul>
+					</div>
+				</section>
+
+				<section class=" projectContent" layout-align="center" layout="row">
+				<div class="container" layout-align="start center" layout="column">
+					<div class="containerLight" layout-align="start stretch" layout="column">
+						<div class="titleLight   bg-white">
+							<h2 >{{group.titleSecond.mainTitle}}</h2>
+
+							
+							
+							<div class="titleLogo">
+								<div class="titleLogoRound transparent" layout="row" layout-align="center center">
+									<img src="img/icons/img-icons/icon-round.png" alt="">
+								</div>
+								
+							</div>
+						</div>
+
+						<div class="textBlock" layout="column" layout-align="start center" >
+
+							<div class="textCaption md-whiteframe-4dp" >
+								<div ng-bind-html="group.titleSecond.text"></div>
+							</div>
+
+						</div>
+
+						<div class="titleLight   bg-white">
+							<h2 >{{group.titleThird.mainTitle}}</h2>
+
+							
+							
+							<div class="titleLogo">
+								<div class="titleLogoRound transparent" layout="row" layout-align="center center">
+									<img src="img/icons/img-icons/icon-hire.png" alt="">
+								</div>
+								
+							</div>
+						</div>
+
+						<div class="textBlock" layout="column" layout-align="start center" >
+
+							<div class="textCaption md-whiteframe-4dp" >
+								<div ng-bind-html="group.titleThird.text"></div>
+								<div class="contactsButtonWrapper buttonWrapper">
+									<md-button data-remodal-target="modalContacts" href="javscript:void(0)" md-no-ink class="projectButton" >Отправить резюме</md-button>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</section>

@@ -1,0 +1,805 @@
+//------------MEDIA MIXIN------------
+
+@mixin media($media) {
+  @if $media == xs {
+    @media (max-width: 599px) { @content; }
+  }
+  @else if $media == gt-xs {
+    @media (min-width: 600px) { @content; }
+  }  
+  @else if $media == sm {
+    @media (min-width: 600px) and (max-width: 959px) { @content; }
+  }
+  @else if $media == md {
+    @media (min-width: 960px) and (max-width: 1279px) { @content; }
+  }
+  @else if $media == gt-md {
+    @media (min-width: 1280px) { @content; }
+  }
+}
+
+//-----------------------------------
+
+
+//-------------VARIABLES-------------
+
+$orange-color : #f8c65e;
+$black-color : #292929;
+$link-footer-color: rgb(52, 53, 52);
+$main-font: 'Open Sans', sans-serif;
+
+//-----------------------------------
+
+
+//------------DEFAULT CLASS----------
+
+*:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.bg-white{
+	background-color: white;
+}
+
+md-content{
+	background-color: white;
+	&.active{
+			    background-image: url(../img/serviceBg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+	}
+}
+
+.md-button .md-ripple-container{
+	border-radius: 0;
+}
+
+.text-left{
+	text-align: left;
+}
+
+md-menu-content{
+	padding: 0;
+	
+	.md-button{
+		color: $link-footer-color !important;
+		background-color: white !important;
+	}
+
+	.md-button.active {
+    background-color: rgba(248, 198, 94, 0.84) !important;
+    color: white !important;
+	}
+}
+
+.remodal{
+	padding: 50px 35px 35px 35px;
+	p{
+	    text-align: left;
+	    line-height: 1.6;
+	    color: $link-footer-color;
+	    font-size: 15px;
+	    letter-spacing: .3px;
+	    @include media(xs){ font-size: 13px; }
+	}
+
+}
+
+.remodal-close:before{
+	font-size: 50px;
+	color: $orange-color;
+}
+
+.remodal-close{
+	top: 9px;    
+    right: 9px;
+    left: auto;
+}
+
+.remodal-overlay {
+    background: rgba(43, 46, 56, 0.5);
+}
+
+//-----------------------------------
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+body{
+	font-family: $main-font;
+}
+
+.projectButton{
+	background-color: $orange-color;
+	color: $link-footer-color;
+    padding: 10px 25px;
+    margin: 0;
+    line-height: 25px;
+    font-weight: bold;
+    text-transform: inherit;
+    border-radius: 0;
+    border: 3px solid $orange-color;
+    &:hover{
+    	background-color:white !important;
+    }
+}
+
+.buttonMore{
+		margin-top: 15px;
+		text-align: right;
+		font-weight: bold;
+		a{
+			color: $link-footer-color;
+			text-decoration: none;
+			position: relative;
+			margin-right: 18px;
+			padding-bottom: 3px;
+			display: inline-block;
+			float: right;
+			&:hover{
+				box-shadow: 0px 1px 0px 0px $orange-color;
+
+			};
+			&:before{
+									    right: -25px;
+									    border: solid transparent;
+									    content: " ";
+									    height: 0;
+									    width: 0px;
+									    position: absolute;
+									    pointer-events: none;
+									    border-color: transparent;
+									    border-left-color: $orange-color;
+									    border-width: 7px;
+									   
+									    top: 46%;
+    									transform: translate3d(0,-50%,0);
+    									@include media(md){ border-width: 4px; left: -13px; }
+									}
+		}
+	}
+
+
+
+.buttonWrapper{
+	text-align: center;
+}
+
+.content{
+	z-index: 2;
+	position: relative;
+	width: 100%;
+	margin-top: 500px;
+
+	@include media(sm){ margin-top: 30px; }
+	@include media(md){ margin-top: 350px; }
+	@include media(xs){ margin-top: 30px; }
+
+}
+
+.container{
+    max-width: 1279px;
+    margin-left: 15px;
+	margin-right: 15px;
+	width: 100%;
+	box-sizing: border-box;
+
+}
+
+.containerLight{
+	max-width: 630px;
+	margin: 0 auto;
+	width:100%;
+	box-sizing: border-box;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.container .containerLight, .container .container{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.divider{
+	width: 1px;
+	background-color: #dedede;
+	height: 70px;
+	min-height:70px;
+	margin-top: 20px;
+    margin-bottom: 20px;
+    @include media(xs){ height: 60px; min-height:60px; margin-top: 10px; margin-bottom: 25px;  }
+}
+
+#bodyContainer {
+    height: auto;
+    min-height: calc(100% - 275px);
+    box-sizing: border-box;
+    margin-bottom: 100px;
+    position: relative;
+    &.active{
+    	min-height: calc(100% - 166px);
+    }
+}
+
+#footer {
+	z-index: 2;
+	position: relative;
+	.footerUp{
+    	padding: 40px 10px;
+    	background-color: white;
+    	border-top: 1px solid black;
+		.footerLogo{
+			a{
+				img{
+					width: 175px;
+				}
+			}
+			@include media(sm){ display: none; }
+			@include media(xs){ margin-bottom: 20px; text-align: center; }
+		}
+		ul{
+			
+			li{
+				list-style-type: none;
+				float: left;
+				font-size: 16px;
+				text-align: center;
+				a{
+					text-decoration: none;
+					color: $link-footer-color;
+					font-weight: bold;
+					padding-bottom: 5px;
+					&:hover{
+						box-shadow: 0px 1px 0px 0px $orange-color;
+					}
+					&.active{
+						box-shadow: 0px 1px 0px 0px $orange-color;
+					}
+
+					@include media(xs){ padding-bottom: 3px; letter-spacing: .2px;}
+				}
+
+				@include media(md){ font-size: 15px; }
+				@include media(sm){ font-size: 13px; }
+				@include media(xs){ font-size: 13px; margin-bottom: 13px; text-transform: uppercase; }
+			}
+		}
+
+		@include media(md){ padding: 30px 10px; }
+		@include media(sm){ padding: 30px 10px; }
+		@include media(xs){ padding: 25px 0 10px; }
+	}
+
+	.footerDown{
+		background-color: $black-color;
+		color: white;
+		font-size: 18px;
+		padding: 22px 10px;
+    	border-top: 1px solid $black-color;
+
+		@include media(md){ font-size: 15px; }
+		@include media(sm){ font-size: 14px; }
+    	@include media(xs) { font-size:13px; padding: 18px 0; }
+	}
+}
+
+
+#header{
+	z-index: 3;
+	position: relative;
+	margin-top:30px;
+	width: 100%;
+	left: 0;
+	right: 0;
+	.headerMenu{
+		> ul{
+			height: 100px;
+			@include media(md){ height: 80px; }
+		}
+		 ul{
+			margin: 0;
+			padding: 0;
+			li{
+				list-style-type: none;
+				float: left;
+				font-size: 15px;
+				position: relative;
+				&:hover{
+
+					a{
+						background-color: $orange-color;
+						transform: translate3d(0px,19px,0px);
+						@include media(md){ transform: translate3d(0px,17px,0px); }
+					}
+					
+				}
+
+				a{
+					text-decoration: none;
+					color: $link-footer-color;
+					font-weight: bold;
+					padding: 22px 10px;
+					transition: all .1s linear;
+					line-height: 18px;
+					cursor: pointer;
+					min-width: 100%;
+
+					display: block;
+					&:hover{
+						background-color: $orange-color;
+					}
+					@include media(sm){ padding: 0; display: block; }
+					@include media(md){ padding: 14px 7px;}
+
+					&.active{
+						background-color: $orange-color;
+						transform: translate3d(0px,19px,0px);
+						@include media(md){ transform: translate3d(0px,17px,0px); }
+					}
+				}
+				&.linked{
+					&:hover{
+						ul{
+							visibility: visible;
+  							opacity: 1;
+  							transform: translate3d(0px,19px,0px);
+  							@include media(md){ transform: translate3d(0px,17px,0px); }
+						}
+
+					}
+					ul{
+						visibility: hidden;
+					  	opacity: 0;
+					  	
+					    transition: all 0.1s linear;
+						width: 100%;
+						background-color: $orange-color;
+						position: absolute;
+						top:100%;
+						padding:10px 30px;
+						@include media(md){ padding:10px 23px; }
+						li{
+							width: 100%;
+							text-align: left;
+							margin-bottom: 10px;
+							&:hover{
+								a{
+									
+									font-weight:bold;
+								}
+							}
+							a{
+								width: 100%;
+								padding: 0;
+								display: block;
+								background-color: transparent;
+								font-weight: normal;
+								    font-size: 14px;
+								    transform: translate3d(0px,0px,0px);
+								    @include media(md){ font-size: 11px;  }
+								&.active{
+									font-weight: bold;
+									position: relative;
+
+									&:before{
+									    left: -18px;
+									    border: solid transparent;
+									    content: " ";
+									    height: 0;
+									    width: 0px;
+									    position: absolute;
+									    pointer-events: none;
+									    border-color: transparent;
+									    border-left-color: $link-footer-color;
+									    border-width: 6px;
+									   
+									    top: 50%;
+    									transform: translate3d(0,-50%,0);
+    									@include media(md){ border-width: 4px; left: -13px; }
+									}
+								}
+							}
+						}
+					}
+				}
+				@include media(sm){ font-size: 10px; height: 25px; letter-spacing: .2px; text-transform: uppercase;}
+				@include media(md){ font-size: 13px;}
+			}
+			@include media(xs){ display: none; }
+		}
+	}
+	.langToggler{
+		md-fab-speed-dial{
+			margin-top: 30px;
+			@include media(xs){ margin-top: 110px; margin-right: 0px; }
+			@include media(sm){ margin-top: 105px; margin-right: 20px; }
+			@include media(md){ margin-top: 20px; }
+			.md-button{
+			    min-height: 10px;
+			    line-height: 30px;
+			    min-width: 40px;
+    			padding: 5px;
+			    margin: 0;
+			    color: #f8c65e;
+			    font-weight: bold;
+			    float:left;
+			    font-size: 15px;
+			    margin-bottom: 10px;
+			    background-color: white !important;
+			    &:hover{
+					color:$link-footer-color;
+					background-color: white !important;
+			    }
+			    @include media(md){ font-size: 13px; }
+			}
+		}
+	}
+	.headerLogo{
+		img{
+			@include media(sm){ width: 100%; }	
+		}
+		
+	}
+	.container{
+		height:100px;
+		padding-left: 5px;
+		background-color: white;
+		padding-right: 5px;
+		@include media(xs){ height: 60px; padding-left: 15px; padding-right: 15px;}
+		@include media(sm){ height: 80px; padding-left: 30px; padding-right: 30px;}
+		@include media(md){ height: 80px; padding-left: 15px; padding-right: 15px;}
+	}
+}
+
+.mainSidenav{
+	md-toolbar{
+		background: white;
+		box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+		position: absolute;
+
+		img{
+		 margin-right: 20px;
+		 width: 150px;
+		}
+	}
+
+	ul{
+
+		li{
+			text-transform: uppercase;
+		    text-align: center;
+		    margin: 5px 0;
+		    padding: 5px 5px;
+			a{
+				color:$black-color;
+				text-decoration: none;
+				cursor: pointer;
+			}
+		}
+	}
+	.closeSidenav{
+		position: absolute;
+	    top: 10px;
+	    left: 10px;
+	    width: 40px;
+	    min-width: 40px;
+	    margin: 0;
+	    padding: 0;
+	    background-color: white !important;
+	    border-radius: 0;
+	}
+}
+
+#slider{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	
+	left: 0;
+	margin-top: 30px;
+	@include media(md) { margin-top: 0px;}
+	@include media(gt-md) { margin-top: 0px;}
+	.item{
+		text-align: center;
+		position: relative;
+		height: 750px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		@include media(md) { height: 560px;}
+		@include media(sm) { height: 460px;}
+		@include media(xs) { height: auto;}
+		&:before{
+			content: '';
+			display: block;
+			padding-top: 100%;
+			
+		}
+
+	}
+	@include media(sm) { position: relative;   width: 100%;    width: auto; margin-left: 15px;
+    margin-right: 15px; box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); }
+	@include media(xs) { position: relative;    width: 100%;    width: auto; margin-left: 15px;
+    margin-right: 15px; box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); }
+}
+
+.sampleTextTitle{
+	line-height: 1.6;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.statistic{
+	width: 100%;
+	margin-bottom: 70px;
+	margin-top: 20px;
+	&.group{
+		margin-top: 12px;
+		margin-bottom: 0px;
+		>  div{
+			.statNumberWrapper{
+				background-color: rgba(255, 255, 255, 0.6);
+				color: white;
+				    padding-top: 15px;
+    			padding-bottom: 15px;
+    			margin-bottom: 0px;
+    			margin-top: 0px;
+    			    text-shadow: 1px 1px 1px black;
+    			    @include media(sm){ color: $link-footer-color; text-shadow: none }
+    			    @include media(xs){ color: $link-footer-color; text-shadow: none}
+    			.statLabel{
+    				top:15px;
+    				color: white;
+    				@include media(sm){ color: $orange-color;  }
+    			    @include media(xs){ color: $orange-color; }
+    			}
+			}
+			.statTextWrapper{
+				font-size: 26px;
+				text-transform: uppercase;
+    			    padding: 20px;
+    			    		    @include media(xs){ font-size: 20px;  }
+		    @include media(sm){ font-size: 20px;  }
+		    @include media(md){ font-size: 20px;  }
+			}
+		}
+	}
+	> div{
+		border-top: 10px solid $orange-color;
+		text-align: center;
+		margin-bottom: 30px;
+		.statNumberWrapper{
+			font-size: 60px;
+			font-weight: bold;
+			margin-top: 15px;
+			margin-bottom: 15px;
+			color: $link-footer-color;
+			background-color: white;
+			position: relative;
+			.statLabel{
+				position: absolute;
+			    font-size: 18px;
+			    color: #f8c65e;
+			    right: 20px;
+			    top: 0px;
+			}
+			@include media(xs){ font-size: 45px; }
+			@include media(sm){ font-size: 45px; margin-bottom: 10px; margin-top: 10px;  }
+			@include media(md){ font-size: 45px; margin-bottom: 10px; margin-top: 10px;  }
+		}
+		.statTextWrapper{
+			color: $orange-color;
+			font-size: 28px;
+		    padding: 0 20px 20px;
+		    letter-spacing: .5px;
+		    line-height: 1.3;
+		    background-color: white;
+		    @include media(xs){ font-size: 20px;  }
+		    @include media(sm){ font-size: 20px;  }
+		    @include media(md){ font-size: 20px;  }
+		}
+		@include media(xs){ border-top: 5px solid $orange-color;  }
+		@include media(sm){ border-top: 8px solid $orange-color;  }
+		@include media(md){ border-top: 8px solid $orange-color;  }
+		
+	}
+	@include media(xs){ margin-bottom: 40px;  }
+	@include media(sm){ margin-bottom: 40px;  }
+	@include media(md){ margin-bottom: 40px;  }
+
+}
+
+.parTitle{
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 70px;
+	> div{
+		line-height: 1.6;
+		border-top: 10px solid $orange-color;
+		border-bottom: 10px solid $orange-color;
+		padding: 20px 0;
+		font-size: 15px;
+		text-align: center;
+		font-weight: bold;
+		text-transform: lowercase;
+		@include media(sm){ 
+			border-top: 4px solid $orange-color;
+			border-bottom: 4px solid $orange-color;
+			padding: 10px 5px;
+			margin-bottom: 40px;
+			&:nth-child(4){
+				margin-bottom: 0px;
+			}
+			&:nth-child(5){
+				margin-bottom: 0px;	
+			}
+			&:nth-child(6){
+				margin-bottom: 0px;
+			}
+		}
+		@include media(md){ 
+			border-top: 4px solid $orange-color;
+			border-bottom: 4px solid $orange-color;
+			padding:8px 0;
+			font-size: 13px;
+		}
+		@include media(xs){
+			
+			border-top: 3px solid $orange-color;
+			border-bottom: 0px solid $orange-color;
+			&:last-child{
+				border-bottom: 3px solid $orange-color;
+			}
+		}
+
+	}
+	@include media(xs){
+			margin-bottom: 40px;
+			width: 85%;
+			margin-left: 7.5%;
+		}
+}
+
+.textBlock{
+	margin-bottom: 70px;
+		&.noMargin{
+		margin-bottom: 0;
+	}
+	.roundCaption{
+		height: 60px;
+	    width: 60px;
+	    text-align: center;
+	    background-color: $orange-color;
+	    border-radius: 50%;
+	    color: white;
+	    font-weight: bold;
+	    font-size: 35px;
+	    margin-bottom: 20px;
+		line-height: 1.4;
+		span{
+
+		}
+	}
+	.titleDivider{
+		width: 80px;
+		height: 7px;
+		background-color: $link-footer-color;
+		margin-bottom: 20px;
+	}
+	.titleCaption{
+	    margin-bottom: 35px;
+    	padding-left: 55px;
+    	padding-right: 55px;
+	    text-align: center;
+	    font-size: 21px;
+	    width: 100%;
+	    &.smallTitle{
+	    	font-size: 17px;
+	    	line-height: 1.6;
+	    }
+	    @include media(xs){ font-size: 20px; padding-right: 20px; padding-left: 20px }
+	}
+	.textCaption{
+		padding: 35px;
+		font-size: 16px;
+		line-height: 1.6;
+		p{
+			margin-bottom: 30px;
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+		ol{
+			margin-left: 17px;
+			margin-bottom: 25px;
+			li{
+				list-style-type: decimal;
+ 				padding-left: 10px;
+ 				margin-bottom: 3px;
+			}
+		}
+		> *:last-child{
+			margin-bottom: 0;
+		}
+		@include media(xs){ padding: 20px; font-size: 13px; }
+	}
+}
+
+.titleLight{
+	> *:nth-child(2){
+		margin-top: 15px;
+	}
+
+	&+.textBlock{
+		margin-top: 30px;
+	}
+
+	text-align: center;
+	border:4px solid $orange-color;
+	color: $link-footer-color;
+	font-size: 18px;
+    padding: 30px 30px 50px;
+    margin-top: 60px;
+    letter-spacing: .3px;
+    position: relative;
+    margin-bottom: 30px;
+	line-height: 1.3;
+	width: 100%;
+    width: auto;
+	span{
+	  
+	    font-size: 15px;
+	    display: inline-block;
+	    line-height: 1.7;
+	    @include media(xs){ font-size: 13px; }
+	    @include media(sm){ font-size: 13px; }
+	    @include media(md){ font-size: 13px; }
+	}
+    .titleLogo{
+    	position: absolute;
+    	bottom: -30px;
+		margin: 0 auto;
+    	left: 0;
+    	right: 0;
+    	height: 60px;
+    	width: 100px;
+    	background-color: white;
+    	.titleLogoRound{
+    		background-color: $orange-color;
+    		border-radius: 50%;
+    		height: 100%;
+		    width: 60px;
+		    margin: 0 auto;
+		    &.transparent{
+		    	background-color: transparent;
+		    }
+		    img{
+		    	max-width: 100%;
+		    	max-height: 100%;
+		    }
+		    @include media(xs){ padding:8px; width: 40px; }
+    	}
+    	@include media(xs){ bottom:-20px; height:40px; width:60px; }
+    }
+	@include media(sm){ font-size: 15px; margin-top:0; border: 3px solid #f8c65e;}
+    @include media(md){ font-size: 15px; }
+    @include media(xs){ padding: 15px 20px 30px; font-size:13px; margin-top: 0; border:2px solid $orange-color; font-size: 11px; span{ font-size: 12px}}
+
+}
+
+.containerPadding{
+	padding: 0 35px;
+	@include media(xs){ padding: 0 20px; }
+}

@@ -1,0 +1,79 @@
+			 <slick infinite=true slides-to-show=1 arrows=false dots=false  slides-to-scroll=1 id="slider" 
+			 		ng-if="work.sliderImgList.length">
+    			<div class="item" ng-repeat="slider in work.sliderImgList" style="background-image:url('{{slider}}')">
+				</div>
+    		</slick>
+
+			<section class="content projectContent" layout-align="center" layout="row">
+				<div class="containerLight" layout-align="start stretch" layout="column">
+
+					<div class="titleLight   bg-white">
+						<h2 >{{work.title.mainTitle}}</h2>
+						<span>
+							{{work.title.subTitle}}
+						</span>
+						
+						<div class="titleLogo">
+							<div class="titleLogoRound" layout="row" layout-align="center center">
+								<img src="img/icons/img-icons/icon-refil.png" alt="">
+							</div>
+							
+						</div>
+					</div>
+
+					<div class="workWrapper  " layout="column" layout-align="start center" >
+						<div class="divider"></div>
+
+						<div class="textBlock" layout="column" layout-align="start center" ng-repeat="azs in work.azsList">
+
+							
+
+							<h3 class="titleCaption" ng-if="azs.name">
+								{{azs.name}}
+							</h3>
+
+							<div class="textCaption md-whiteframe-4dp" >
+								<div ng-bind-html="azs.text"></div>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="titleLight   bg-white">
+						<h2 >{{work.title.mainSecondTitle}}</h2>
+					
+						<div class="titleLogo">
+							<div class="titleLogoRound" layout="row" layout-align="center center">
+								<img src="img/icons/img-icons/icon-people.png" alt="">
+							</div>
+							
+						</div>
+					</div>
+
+					<div class="workWrapper  " layout="column" layout-align="start center" >
+						<div class="divider"></div>
+
+						<div class="textBlock" layout="column" layout-align="start center" ng-repeat="works in work.workList">
+
+							<div class="roundCaption" layout="row" layout-align="center center">
+								<span>{{works.id}}</span>
+							</div>	
+
+							<h3 class="titleCaption">
+								{{works.name}}
+							</h3>
+
+							<div class="textCaption md-whiteframe-4dp" >
+								<div ng-bind-html="works.text"></div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="buttonWrapper">
+						<md-button ui-sref="projects" md-no-ink class="projectButton">Реализованные проеты</md-button>
+					</div>
+
+				</div>
+			</section>

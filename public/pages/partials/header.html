@@ -1,0 +1,68 @@
+			<section id="header" layout="row" layout-align="center" ng-controller="HeaderController" ng-show="!$state.includes('otherwise')">
+				<div class="container md-whiteframe-1dp" layout="row">
+
+					<div class="headerLogo" 
+						flex-xs=70 layout-xs="row" layout-align-xs="start center"
+						flex-sm=70 layout-sm="row" layout-align-sm="start center"
+						flex-md=20 layout-md="row" layout-align-md="center center"
+						flex-gt-md=20 layout-gt-md="row" layout-align-gt-md="center center" >
+						<a href="/">
+							<img src="img/logo.png" alt="" >
+						</a>
+					</div>
+
+					<div class="headerMenu" 
+						flex-xs=0 flex-offset-xs=0
+						flex-sm=90
+						flex-md=70 flex-offset-md=5
+						flex-gt-md=60 flex-offset-gt-md=10 hide-sm>
+
+						<ul layout="row" layout-align="space-between center" layout-fill>
+							<li><a ng-class="getClass('/group')" ui-sref="group" ui-sref-opts="{ reload: true }" layout-fill layout="row" layout-align="center center"><span >Группа компании</span></a></li>
+							<li class="linked" layout="column" layout-align="start stretch">
+								<a  ng-class="getClass('/activities')"  layout-fill layout="row" layout-align="center center">
+									<span >Виды деятельности</span>
+								</a>
+								<ul layout="column" layout-align="start stretch">
+									<li><a ng-class="getClass('/activities/azs')" ui-sref="azs" ui-sref-opts="{ reload: true }">АЗС</a></li>
+									<li><a ng-class="getClass('/activities/communication')" ui-sref="communication" ui-sref-opts="{ reload: true }">Инженерные коммунникации</a></li>
+									<li><a ng-class="getClass('/activities/services')" ui-sref="services" ui-sref-opts="{ reload: true }">Услуги</a></li>
+									<li><a ng-class="getClass('/activities/reviews')" ui-sref="reviews" ui-sref-opts="{ reload: true }">Отзывы</a></li>
+								</ul>
+							</li>
+							<li><a ui-sref="work" ui-sref-opts="{ reload: true }" ng-class="getClass('/how-we-work')"  layout-fill layout="row" layout-align="center center"><span >Как мы работаем</span></a></li>
+							<li><a ui-sref="projects" ui-sref-opts="{ reload: true }" ng-class="getClass('/projects')" layout-fill layout="row" layout-align="center center"><span >Проекты</span></a></li>
+							<li><a ui-sref="contacts" ui-sref-opts="{ reload: true }" ng-class="getClass('/contacts')"  layout-fill layout="row" layout-align="center center"><span >Контакты</span></a></li>
+						</ul>
+					</div>
+
+					<div class="langToggler" 
+						flex-xs=30 layout-xs="row" layout-align-xs="end center"
+						flex-sm=30 flex-offset-sm=5 layout-sm="row" layout-align-sm="end center"
+						flex-md=10 layout-md="row" layout-align-md="center start"
+						flex-gt-md=10 layout-gt-md="row" layout-align-gt-md="center start">
+							
+							<md-fab-speed-dial md-open="false" md-direction="down" class="md-scale" >
+						        <md-fab-trigger>
+						          <md-button aria-label="menu" class="md-whiteframe-1dp">
+						            RU
+						          </md-button>
+						        </md-fab-trigger>
+						        <md-fab-actions>
+						          <md-button aria-label="twitter" class="md-whiteframe-1dp">
+						            RO
+						          </md-button>
+						          <md-button aria-label="facebook" class="md-whiteframe-1dp">
+						            EN
+						          </md-button>
+
+						        </md-fab-actions>
+						      </md-fab-speed-dial>
+
+						  <md-button hide-gt-md hide-md ng-click="toggleLeft()" class="md-icon-button md-primary" aria-label="Settings">
+					        <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+					      </md-button>
+					</div>
+				</div>
+			</section>
+	
