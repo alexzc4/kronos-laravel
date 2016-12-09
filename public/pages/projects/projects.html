@@ -29,7 +29,7 @@
 								flex-gt-md="25" layout="column"  layout-align=" stretch" ng-repeat="project in projects.projectsList">
 
 								<div class="projectImgWrapper">
-									<a ui-sref="projectsD({ projectId: project.id })" class="md-whiteframe-1dp" layout-align="center">
+									<a ui-sref="projesctsD({ projectId: project.id })" class="md-whiteframe-1dp" layout-align="center">
 										<img ng-src="{{project.imageUrl}}" alt="">
 										<span><b>Открыть</b></span>
 									</a>
@@ -48,7 +48,7 @@
 
 								<p><a href="javascript:void(0)" ng-click="deleteComment(comment.id)" class="text-muted">Delete</a></p>
 							</div>
-							
+
 						</div>
 					</div>
 					</div>
